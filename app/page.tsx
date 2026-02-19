@@ -12,7 +12,9 @@ export default function Home() {
   const [mode, setMode] = useState(null);
   const controlsRef = useRef(null);
 
-  const codeReader = new BrowserMultiFormatReader();
+  // const codeReader = new BrowserMultiFormatReader();
+  const codeReaderRef = useRef(new BrowserMultiFormatReader());
+
 
   // 📷 Camera Scan
 useEffect(() => {
@@ -64,14 +66,15 @@ useEffect(() => {
 
 
   // 🖼 Image Upload Scan
-  const handleImageUpload = async (event) => {
+  const handleImageUpload = async ( event: React.ChangeEvent<HTMLInputElement>) => {  
     const file = event.target.files[0];
     if (!file) return;
 
     try {
-      const result = await codeReader.decodeFromImageUrl(
-        URL.createObjectURL(file)
-      );
+      const result = await codeReaderRef.current.decodeFromImageUrl(
+  URL.createObjectURL(file)
+);
+
 
       const decodedText = result.getText();
 
