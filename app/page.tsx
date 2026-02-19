@@ -8,8 +8,11 @@ import type { IScannerControls } from "@zxing/browser";
 export default function Home() {
   // const videoRef = useRef(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [product, setProduct] = useState(null);
-  const [mode, setMode] = useState(null);
+  // const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<{ id: string; name: string; price: number } | null>(null);
+  // const [mode, setMode] = useState(null);
+  const [mode, setMode] = useState<"choose" | "camera" | null>(null);
+
   const controlsRef = useRef(null);
 
   // const codeReader = new BrowserMultiFormatReader();
