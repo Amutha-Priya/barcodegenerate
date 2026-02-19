@@ -27,7 +27,8 @@ useEffect(() => {
     }
       try {
         controls = await codeReader.decodeFromVideoDevice(
-          null,
+          // null,
+          undefined,
           videoRef.current,
           async (result, err) => {
             if (result) {
