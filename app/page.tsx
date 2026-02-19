@@ -6,7 +6,8 @@ import type { IScannerControls } from "@zxing/browser";
 
 
 export default function Home() {
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [product, setProduct] = useState(null);
   const [mode, setMode] = useState(null);
   const controlsRef = useRef(null);
