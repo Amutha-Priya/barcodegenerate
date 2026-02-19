@@ -67,7 +67,12 @@ useEffect(() => {
 
   // 🖼 Image Upload Scan
   const handleImageUpload = async ( event: React.ChangeEvent<HTMLInputElement>) => {  
-    const file = event.target.files[0];
+    // const file = event.target.files[0];
+    const files = event.target.files;
+if (!files || files.length === 0) return;
+
+const file = files[0];
+
     if (!file) return;
 
     try {
