@@ -30,7 +30,7 @@ useEffect(() => {
         controls = await codeReader.decodeFromVideoDevice(
           // null,
           undefined,
-          videoRef.current,
+          videoRef.current!,
           async (result, err) => {
             if (result) {
               const decodedText = result.getText();
