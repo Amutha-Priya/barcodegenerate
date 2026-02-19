@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BrowserMultiFormatReader } from "@zxing/browser";
+import type { IScannerControls } from "@zxing/browser";
+
 
 export default function Home() {
   const videoRef = useRef(null);
@@ -13,7 +15,8 @@ export default function Home() {
 
   // 📷 Camera Scan
 useEffect(() => {
-  let controls;
+  // let controls;
+  let controls: IScannerControls | undefined;
 
   if (mode === "camera") {
     const startScanner = async () => {
